@@ -1,27 +1,21 @@
 <template>
-  <vn-view id="hero" :styleSheet="viewStyle">
-    <vn-image id="img" src="https://docs.nodegui.org/img/logox200.png" />
-    <vn-text id="heading">Vue nodegui</vn-text>
-    <vn-text id="text">Powered by Vue3 🌈 and Qt 💚</vn-text>
+  <vn-view id="test" :styleSheet="viewStyle">
+    <vn-button @clicked="anki">Test Button</vn-button>
   </vn-view>
 </template>
 
 <script>
+import ankiPath from "./assets/test.js";
+
 export default {
   setup() {
-    const ankiProfile = "Anki2User 1collection.media";
-    if (os.platform() === "win32") {
-      var ankiPath = path.join(process.env.APPDATA, ankiProfile);
-    } else {
-      var ankiPath = path.join(
-        process.env.HOME,
-        "/Library/Application Support/",
-        ankiProfile
-      );
-    }
+    const anki = () => {
+      console.log(ankiPath);
+    };
     return {
+      anki,
       viewStyle: `
-                #hero {
+                #test {
                     background-color: white;
                     padding: 20px;
                 }

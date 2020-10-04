@@ -1,24 +1,26 @@
 <template>
   <vn-view>
-    <hero />
+    <Test />
     <vn-view id="counter" :styleSheet="counterStyle">
-      <vn-text>Counter: {{count}}</vn-text>
+      <vn-text>Counter: {{ count }}</vn-text>
       <vn-button @clicked="inc">Inc</vn-button>
     </vn-view>
   </vn-view>
 </template>
 
 <script>
-import Hero from './Hero.vue';
-import { ref } from '@nodegui/vue-nodegui';
+import Test from "./Test.vue";
+import { ref } from "@nodegui/vue-nodegui";
 
 export default {
-  components: { Hero },
+  components: { Test },
   setup() {
     const count = ref(0);
+
     const inc = () => {
       count.value++;
-    }
+      console.log(count);
+    };
 
     return {
       inc,
@@ -29,8 +31,8 @@ export default {
           align-items: 'center';
           justify-content: 'center';
         }
-      `
-    }
-  }
-}
+      `,
+    };
+  },
+};
 </script>
