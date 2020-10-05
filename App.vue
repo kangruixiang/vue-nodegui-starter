@@ -1,5 +1,6 @@
 <template>
   <vn-view>
+    <Preference />
     <Test />
     <vn-view id="counter" :styleSheet="counterStyle">
       <vn-text>Counter: {{ count }}</vn-text>
@@ -10,10 +11,11 @@
 
 <script>
 import Test from "./Test.vue";
+import Preference from "./Preference.vue";
 import { ref } from "@nodegui/vue-nodegui";
 
 export default {
-  components: { Test },
+  components: { Test, Preference },
   setup() {
     const count = ref(0);
 
